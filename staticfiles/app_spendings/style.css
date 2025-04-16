@@ -1,0 +1,19 @@
+.image-card {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scale-image {
+    transition: transform 0.3s ease;
+}
+
+.scale-image:hover {
+    transform: scale(1.1);
+}

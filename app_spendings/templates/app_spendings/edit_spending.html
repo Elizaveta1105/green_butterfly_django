@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Edit Spending
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Edit Spending</h2>
+
+    <!-- Display Form Errors -->
+    {% if form.errors and form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="{% url 'app_spendings:edit-spending' section.id spending.id %}" method="post" class="border p-4 rounded shadow-sm bg-light">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label fw-bold">Spending Name</label>
+                    <input type="text" id="{{ form.name.id_for_label }}" name="name" class="form-control" value="{{ spending.name }}">
+                    <span class="text-danger">{{ form.errors.name }}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.comment.id_for_label }}" class="form-label fw-bold">Comment</label>
+                    <textarea id="{{ form.comment.id_for_label }}" name="comment" class="form-control">{{ spending.comment }}</textarea>
+                    <span class="text-danger">{{ form.errors.comment }}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.sum_uah.id_for_label }}" class="form-label fw-bold">Amount (UAH)</label>
+                    <input type="number" id="{{ form.sum_uah.id_for_label }}" name="sum_uah" class="form-control" value="{{ spending.sum_uah }}">
+                    <span class="text-danger">{{ form.errors.sum_uah }}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.payment_date.id_for_label }}" class="form-label fw-bold">Payment Date</label>
+                    <input type="date" id="{{ form.payment_date.id_for_label }}" name="payment_date" class="form-control" value="{{ spending.payment_date|date:'Y-m-d' }}">
+                    <span class="text-danger">{{ form.errors.payment_date }}</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <a href="{% url 'app_spendings:spendings' section.id %}" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

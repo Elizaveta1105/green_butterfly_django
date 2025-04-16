@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'app_spendings/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    Images Gallery
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center text-primary mb-4">Images Gallery</h1>
+    <a href="{% url 'app_spendings:spendings' spending.section.id %}" class="btn btn-secondary w-45 mb-4">Back</a>
+
+    <div class="row">
+        {% for pic in pics %}
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm border-light image-card">
+            <img src="{{ pic.image.url }}" class="card-img-top" alt="{{ pic.description }}">
+            <div class="card-body">
+                <p class="card-text">{{ pic.description }}</p>
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'app_spendings:edit_image' spending.id pic.id %}" class="btn btn-info btn-sm">
+                        <i class="fas fa-edit"></i> Edit Description
+                    </a>
+                    <a href="{% url 'app_spendings:remove_image' pic.id %}" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i> Remove
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <p class="text-center">No images uploaded yet.</p>
+{% endfor %}
+
+    </div>
+</div>
+{% endblock %}

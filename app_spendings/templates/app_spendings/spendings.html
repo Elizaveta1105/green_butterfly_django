@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Spendings
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Spendings</h1>
+
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">{{ section.name }}</h2>
+        <a href="{% url 'app_spendings:add-spending' section.id %}" class="btn btn-success">
+            <i class="fas fa-plus"></i> Add Spending
+        </a>
+    </div>
+
+
+    <div class="list-group">
+        {% for spending in spendings %}
+            <div class="list-group-item list-group-item-light py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{{ spending.name }}</h5>
+                    <small class="text-muted">{{ spending.payment_date }}</small>
+                </div>
+                <p class="text-secondary mb-1">{{ spending.comment }}</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="fw-bold text-success">UAH {{ spending.sum_uah }}</span>
+
+                    <div class="d-flex gap-2">
+                        <a href="{% url 'app_spendings:spending-images' spending.id %}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-images"></i> View Images
+                        </a>
+                        <a href="{% url 'app_spendings:upload' spending.id %}" class="btn btn-outline-info btn-sm">
+                            <i class="fas fa-upload"></i> Upload
+                        </a>
+                        <a href="{% url 'app_spendings:edit-spending' section.id spending.id %}" class="btn btn-outline-warning btn-sm">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a href="{% url 'app_spendings:remove-spending' spending.id %}" class="btn btn-outline-danger btn-sm">
+                            <i class="fas fa-trash"></i> Remove
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="alert alert-info text-center">No spendings added yet.</div>
+        {% endfor %}
+    </div>
+    <div class="alert alert-primary text-center mt-4">
+        <h4 class="mb-0">Total: <span class="fw-bold">{{ total_sum }} UAH</span></h4>
+    </div>
+</div>
+{% endblock %}

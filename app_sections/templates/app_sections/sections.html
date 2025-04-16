@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    All Sections
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Sections</h2>
+
+
+    <div class="text-end mb-3">
+        <a href="{% url 'app_sections:create-section' %}" class="btn btn-success">
+            <i class="fas fa-plus"></i> Create Section
+        </a>
+    </div>
+
+
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="list-group">
+            {% for section in sections %}
+            <a href="{% url 'app_spendings:spendings' section.id %}"
+               class="list-group-item list-group-item-action
+                      {% if section.completed %}list-group-item-success{% else %}list-group-item-light{% endif %}">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{{ section.name }}</h5>
+                </div>
+
+                <p class="text-secondary mb-1">{{ section.description }}</p>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="fw-bold text-success">UAH {{ section.sum_uah }}</small>
+                    <small class="fw-bold text-info">$ {{ section.sum_currency }}</small>
+                </div>
+            </a>
+
+            <div class="d-flex justify-content-end gap-2 mt-2">
+                <a href="{% url 'app_sections:edit-section' section.id %}" class="btn btn-outline-warning btn-sm">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a href="{% url 'app_sections:delete-section' section.id %}" class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-trash"></i> Remove
+                </a>
+            </div>
+            {% empty %}
+            <div class="alert alert-warning text-center">No sections available.</div>
+            {% endfor %}
+        </div>
+
+        <div class="alert alert-primary text-center mt-4">
+            <h4 class="mb-0">Total: <span class="fw-bold">${{ sum_curr }}</span></h4>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

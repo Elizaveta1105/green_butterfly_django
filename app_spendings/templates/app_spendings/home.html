@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Green Butterfly - Home
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="hero-section mb-5 py-5 rounded-lg text-center" style="background: linear-gradient(120deg, #e6f7e9 0%, #c3e6cb 100%);">
+        <img src="{% static 'images/logo.png' %}" alt="Green Butterfly Logo" class="mb-4" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); width: 150px;">
+        <h1 class="display-4" style="color: #2e7d32; font-weight: 700;">Welcome to Green Butterfly</h1>
+        <p class="lead" style="color: #495057;">Track your finances in a simple, beautiful way.</p>
+    </div>
+
+    <div class="intro-text mb-5 p-4 text-center" style="border-left: 4px solid #2e7d32; background-color: #f8f9fa; border-radius: 0 8px 8px 0;">
+        <p class="fs-4" style="color: #343a40;">Green Butterfly helps you manage your spending and stay on top of your budget. With an easy-to-use interface and powerful tools, you can track your expenses in real-time.</p>
+        <p class="fs-5" style="color: #495057;">Ready to start your financial journey? Sign up and begin tracking your finances today!</p>
+    </div>
+
+    <div class="features-section mt-5">
+        <h2 class="text-center mb-4" style="color: #2e7d32; font-weight: 600;">Why Choose Green Butterfly?</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm p-3 border-0" style="transition: transform 0.3s; background-color: #f8f9fa;">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3" style="color: #2e7d32; font-size: 2.5rem;">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h4 class="card-title" style="color: #2e7d32;">Easy-to-Use</h4>
+                        <p class="card-text">Our intuitive interface makes tracking expenses fun and straightforward. No more complicated spreadsheets!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm p-3 border-0" style="transition: transform 0.3s; background-color: #f8f9fa;">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3" style="color: #2e7d32; font-size: 2.5rem;">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h4 class="card-title" style="color: #2e7d32;">Real-time Tracking</h4>
+                        <p class="card-text">Track your spending in real-time, ensuring you're always in control of your finances.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm p-3 border-0" style="transition: transform 0.3s; background-color: #f8f9fa;">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3" style="color: #2e7d32; font-size: 2.5rem;">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h4 class="card-title" style="color: #2e7d32;">Smart Insights</h4>
+                        <p class="card-text">Get valuable insights into your spending habits and stay on track with your budget. Green Butterfly helps you make smarter financial decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonials-section mt-5 py-4" style="background-color: #f8f9fa; border-radius: 8px;">
+        <h2 class="text-center mb-4" style="color: #2e7d32; font-weight: 600;">What Our Users Say</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="testimonial-carousel">
+                    <div class="testimonial-item text-center p-4">
+                        <p class="mb-3" style="color: #495057; font-style: italic;">"Green Butterfly has transformed the way I handle my finances. I can now see exactly where my money goes!"</p>
+                        <p class="text-muted">- Jamie Smith</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section with Improved Design -->
+    <div class="cta-section mt-5 text-center p-5 rounded-lg" style="background: linear-gradient(120deg, #c3e6cb 0%, #e6f7e9 100%);">
+        <h3 class="display-6" style="color: #2e7d32; font-weight: 600;">Start your journey today!</h3>
+        <p class="lead mb-4" style="color: #495057;">Green Butterfly is here to help you save money, track your spending, and stay financially fit.</p>
+        <div class="row justify-content-center">
+        </div>
+    </div>
+
+    <div class="stats-section mt-5 mb-5">
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <div class="stat-item p-3" style="background-color: #f8f9fa; border-radius: 8px;">
+                    <h2 style="color: #2e7d32; font-weight: 700;">10,000+</h2>
+                    <p style="color: #495057;">Happy Users</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="stat-item p-3" style="background-color: #f8f9fa; border-radius: 8px;">
+                    <h2 style="color: #2e7d32; font-weight: 700;">$5M+</h2>
+                    <p style="color: #495057;">Money Saved</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="stat-item p-3" style="background-color: #f8f9fa; border-radius: 8px;">
+                    <h2 style="color: #2e7d32; font-weight: 700;">4.8/5</h2>
+                    <p style="color: #495057;">User Rating</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

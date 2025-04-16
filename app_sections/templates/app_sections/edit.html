@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Edit Section
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Edit Section</h2>
+
+    {% if form.errors and form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="{% url 'app_sections:edit-section' section.id%}" method="post" class="border p-4 rounded shadow-sm bg-light">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label fw-bold">Section Name</label>
+                    <input type="text" id="{{ form.name.id_for_label }}" name="name" value="{{ section.name }}">
+                    <span class="text-danger">{{ form.errors.name }}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.comment.id_for_label }}" class="form-label fw-bold">Comment</label>
+                    <textarea id="{{ form.comment.id_for_label }}" name="comment">{{ section.comment }}</textarea>
+                    <span class="text-danger">{{ form.errors.comment }}</span>
+                </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="completed" id="defaultCheck1"
+                       {% if section.completed %}checked{% endif %}>
+                <label class="form-check-label" for="defaultCheck1">
+                    Completed
+                </label>
+            </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <a href="{% url 'app_sections:sections' %}" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

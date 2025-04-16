@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Add Spending
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Add Spending</h2>
+
+    {% if form.errors and form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="{% url 'app_spendings:add-spending' section.id %}" method="post" enctype="multipart/form-data" class="border p-4 rounded shadow-sm bg-light">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label fw-bold">Spending Name</label>
+                    {{ form.name }}
+                    <div class="form-text">Enter the name of the spending</div>
+                    <span class="text-danger">{{ form.errors.name }}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.comment.id_for_label }}" class="form-label fw-bold">Comment</label>
+                    {{ form.comment }}
+                    <div class="form-text">Add an optional comment</div>
+                    <span class="text-danger">{{ form.errors.comment }}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.sum_uah.id_for_label }}" class="form-label fw-bold">Amount</label>
+                    <div class="input-group">
+                        <span class="input-group-text">UAH</span>
+                        {{ form.sum_uah }}
+                    </div>
+                    <span class="text-danger">{{ form.errors.sum_uah }}</span>
+                </div>
+
+                <div class="mb-3"
+                    <label for="{{ form.payment_date.id_for_label }}" class="form-label fw-bold">Payment Date</label>
+                    <div class="input-group" >
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                        {{ form.payment_date }}
+                    </div>
+                    <span class="text-danger">{{ form.errors.payment_date }}</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-check"></i> Submit
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                    <a href="{% url 'app_spendings:spendings' section.id %}" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Back
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

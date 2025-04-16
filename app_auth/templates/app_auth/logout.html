@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Logout
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="mb-4">See you soon!</h1>
+            <p>You've been successfully logged out. We hope to see you back soon!</p>
+            <a href="{% url 'app_auth:login' %}" class="btn btn-primary btn-lg">Log In Again</a>
+            <a href="{% url 'app_spendings:home' %}" class="btn btn-outline-secondary btn-lg">Go to Home Page</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

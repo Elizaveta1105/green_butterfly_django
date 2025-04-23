@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'bootstrap5',
     'cloudinary',
     'cloudinary_storage',
@@ -140,3 +141,12 @@ LOGIN_URL = 'auth/login'
 LOGIN_REDIRECT_URL= '/sections/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_STORAGE_BUCKET_NAME='green-butterfly'
+AWS_S3_REGION_NAME='us-east-1'
+AWS_ACCESS_KEY_ID=getenv("AWS_ACCESS_KEY")
+AWS_SECRET_ACCESS_KEY=getenv("AWS_SECRET_KEY")
+
+AWS_S3_CUSTOM_DOMAIN=f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+
+STATICFILES_STORAGE="storages.backends.s3boto3.S3Boto3Storage"

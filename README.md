@@ -25,7 +25,7 @@ Features to add in future:
 - **Backend & Frontend**: [Django](https://www.djangoproject.com/)
 - **Deployment**: [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - **Static Files Hosting**: [Amazon S3](https://aws.amazon.com/s3/)
-- **Cloudinary** for storing images: [Cloudinary](https://cloudinary.com/)
+- **Storing uploaded images**: [Cloudinary](https://cloudinary.com/)
 - **DB: PostgreSQL**
 
 ---

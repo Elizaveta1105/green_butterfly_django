@@ -4,6 +4,8 @@
 
 🌐 [Live Project Link](http://env-greenbutterfly.eba-wm879vm3.us-east-1.elasticbeanstalk.com/)
 
+Please, sign up or use test user: _elizaveta11 / konkordiya05_
+
 ---
 
 ## 🧰 Key Features
